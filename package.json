@@ -1,0 +1,17 @@
+{
+  "name": "coravabot",
+  "version": "1.0.0",
+  "description": "It's a basic bot discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "/ping"
+  },
+  "author": "Chiloute",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.11.1"
+  }
+}
