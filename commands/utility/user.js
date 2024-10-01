@@ -1,4 +1,5 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { createDefaultEmbed } = require('../../embedBuild.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -6,17 +7,13 @@ module.exports = {
     .setDescription('Give information about the user'),
   async execute(interaction) {
 
-    const userEmbed = new EmbedBuilder()
-      .setColor(0xA30000)
+    const userEmbed = createDefaultEmbed(interaction)
       .setTitle(`Informations de  ( ${interaction.user.username}) `)
-      .setThumbnail(interaction.client.user.displayAvatarURL())
       .addFields(
         { name: `Nom d'utilisateur`, value: interaction.user.username },
         { name: 'ID', value: interaction.user.id },
         { name: 'A rejoint le :', value: interaction.member.joinedAt.toDateString() }
       )
-      .setFooter({ text: `Informations demandées par ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL() })
-      .setTimestamp();
 
     await interaction.channel.send({ embeds: [userEmbed] });
   },
